@@ -26,8 +26,6 @@
     "@pinia-plugin-persistedstate/nuxt": "^1.2.1",
     "@pinia/nuxt": "^0.5.1",
     "@studio-freight/lenis": "^1.0.28",
-    "@vueuse/core": "^10.11.0",
-    "@vueuse/nuxt": "^10.11.0",
     "eslint": "^9.6.0",
     "lint-staged": "^15.2.7",
     "pinia": "^2.1.7",

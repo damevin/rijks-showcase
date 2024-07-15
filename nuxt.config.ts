@@ -57,7 +57,6 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/icon',
-    '@vueuse/nuxt',
     '@nuxt/image',
     '@hypernym/nuxt-gsap',
     '@pinia/nuxt',
