@@ -1,27 +1,25 @@
 <script lang="ts" setup>
 const props = withDefaults(
   defineProps<{
-    variant?: 'primary' | 'secondary' | 'fab'
-    size?: 'sm' | 'md' | 'lg'
+    variant?: 'primary' | 'secondary' | 'fab' | 'plain' | 'disabled'
     disabled?: boolean
-
   }>(),
   {
     variant: 'primary',
-    size: 'md',
     disabled: false,
-
   },
 )
 </script>
 
 <template>
   <button
-    class="btn"
+    :disabled="props.disabled"
     :class="{
-      'btn-primary': props.variant === 'primary',
-      'btn-secondary': props.variant === 'secondary',
-      'btn-fab': props.variant === 'fab',
+      'btn-primary btn': props.variant === 'primary',
+      'btn-secondary btn': props.variant === 'secondary',
+      'btn-plain btn': props.variant === 'plain',
+      'btn-disabled': props.variant === 'disabled',
+      'btn-fab btn': props.variant === 'fab',
     }"
   >
     <span class="btn__slot">
@@ -47,6 +45,11 @@ const props = withDefaults(
   border-radius: 6px;
   overflow: hidden;
   z-index: 1;
+}
+
+.btn-disabled {
+  color: var(--background-surface);
+  cursor: not-allowed;
 }
 
 .btn-secondary span {
@@ -75,7 +78,7 @@ const props = withDefaults(
 .btn-secondary:hover::before {
   opacity: 1;
   transition-duration: .85s;
-  transform: translate3d(-50%, -50%, 0) scale3d(1.5, 1.5, 1.5);
+  transform: translate3d(-50%, -50%, 0) scale3d(2, 1.5, 1.5);
 }
 
 .btn {
@@ -130,5 +133,23 @@ const props = withDefaults(
 .btn-primary:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+.btn-plain {
+  background: linear-gradient(to right, #e85640, #d55140, #a03020);
+  background-size: 200% 200%;
+  animation: rainbow 3s ease-in-out infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: black;
+  -webkit-text-stroke: 2px #d5514031;
+  text-align: center;
+  outline: none;
+  border: none;
+  transition: color .2s ease-in-out;
+}
+
+.btn-plain:hover {
+  color: rgba(0, 0, 0, 0);
 }
 </style>
