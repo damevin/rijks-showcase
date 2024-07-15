@@ -2,49 +2,63 @@
 import type { ArtObject } from '~/types/collections.types'
 
 defineProps<{
-  collection: ArtObject
+  collection: Partial<ArtObject>
 }>()
 
 defineEmits<{
   (event: 'update:saved-collection', collection: ArtObject): void
 }>()
+
+const imageIsLoaded = ref<boolean>(false)
 </script>
 
 <template>
-  <article class="collection-card">
-    <div class="collection-card__image-container">
-      <NuxtImg
-        v-if="collection.webImage?.url"
-        :src="collection.webImage?.url"
-        quality="70"
-        class="collection-card__img"
-        sizes="100vw sm:200px md:300px"
-        height="300"
-        placeholder="img/placeholder.png"
-        format="webp"
-        placeholder-class="skeleton"
-      />
-    </div>
-    <div class="collection-card__overlay">
-      <div class="collection-card__header">
-        <h2 class="collection-card__title">
-          {{ collection.title }}
-        </h2>
-        <span class="collection-card__subtitle">
-          {{ collection.principalOrFirstMaker }}
-        </span>
+  <div>
+    <article v-show="imageIsLoaded" class="collection-card">
+      <div class="collection-card__image-container">
+        <NuxtImg
+          v-if="collection.webImage?.url"
+          :src="collection.webImage?.url"
+          quality="70"
+          class="collection-card__img"
+          sizes="100vw sm:200px md:300px"
+          height="300"
+          placeholder="img/placeholder.png"
+          format="webp"
+          :alt="collection.title"
+          placeholder-class="skeleton"
+          @load="imageIsLoaded = true"
+        />
       </div>
+      <div class="collection-card__overlay">
+        <div class="collection-card__header">
+          <h2 class="collection-card__title">
+            {{ collection.title }}
+          </h2>
+        </div>
+      </div>
+    </article>
+    <div v-show="!imageIsLoaded">
+      <div class="skeleton" />
     </div>
-  </article>
+  </div>
 </template>
 
 <style scoped>
+.skeleton {
+  width: 100%;
+  border-radius: 8px;
+  background-color: var(--color-skeleton);
+  height: 500px;
+}
+
 .collection-card {
   position: relative;
   cursor: pointer;
   border-radius: 8px;
   height: 500px;
   overflow: hidden;
+  background-color: var(--color-skeleton);
   animation: fade-in-fwd 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
@@ -86,16 +100,6 @@ defineEmits<{
 
 .collection-card__subtitle {
   font-size: 13px;
-}
-
-.skeleton {
-  animation: pulse 2s infinite ease-in-out;
-}
-
-@keyframes pulse {
-  0% { opacity: 0.6; }
-  50% { opacity: 1; }
-  100% { opacity: 0.6; }
 }
 
 @keyframes fade-in-fwd {
