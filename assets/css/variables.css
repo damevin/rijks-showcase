@@ -1,22 +1,6 @@
 :root {
   /* colors */
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --success-color: #28a745;
-  --info-color: #17a2b8;
-  --warning-color: #ffc107;
-  --danger-color: #dc3545;
-  --light-color: #f8f9fa;
+  --primary-color: 	hsl(7, 64%, 54%);
   --background-surface: hsl(210, 8%, 9%);
-
-  /* font size */
-  --font-size-base: 1rem;
-  --font-size-lg: 1.25rem;
-  --font-size-sm: 0.875rem;
-
-  /* media queries */
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
+  --color-skeleton: hsla(210, 8%, 15%, 0.478);
 }
