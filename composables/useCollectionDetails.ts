@@ -1,6 +1,5 @@
-import { useInfiniteQuery, useQuery } from '@tanstack/vue-query'
-import { useDebounceFn } from '@vueuse/core'
-import type { ArtObject } from '~/types/collections.types'
+import { useQuery } from '@tanstack/vue-query'
+import type { FormatedCollection } from '~/types/collections.types'
 
 export function useCollectionDetails() {
   const objectId = ref<string | null>(null)
@@ -19,11 +18,26 @@ export function useCollectionDetails() {
       params: {
         q: objectId.value,
       },
-    })
-    return response.artObject
+    }) as { artObject: any }
+
+    return formatCollection(response.artObject)
   }
 
-  const { data, isLoading } = useQuery({
+  function formatCollection(collection: {
+    title: string
+    objectNumber: string
+    webImage: { url: string }
+    description: string
+  }): FormatedCollection {
+    return {
+      title: collection.title,
+      objectNumber: collection.objectNumber,
+      webImage: collection.webImage.url,
+      description: collection.description,
+    }
+  }
+
+  const { data } = useQuery({
     queryKey: ['collection', objectId],
     queryFn: fetchCollections,
     staleTime: 1000 * 60 * 5,

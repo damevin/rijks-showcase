@@ -1,5 +1,4 @@
 import { useInfiniteQuery } from '@tanstack/vue-query'
-import { useDebounceFn } from '@vueuse/core'
 import type { ArtObject } from '~/types/collections.types'
 
 interface PaginatedResponse {
@@ -52,6 +51,7 @@ export function useCollections() {
   return {
     collections,
     loadMore,
+    refetchData: query.refetch,
     updateSearchQuery,
     hasNextPage: query.hasNextPage,
     isFetchingNextPage: query.isFetchingNextPage,
