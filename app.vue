@@ -9,6 +9,7 @@ onMounted(() => {
     <LayoutHeader class="app__header" />
     <div class="app__container">
       <NuxtPage />
+      <Toaster position="bottom-right" theme="dark" />
     </div>
   </div>
 </template>
@@ -44,6 +45,6 @@ html {
 .app__container {
   margin: 8px;
   height: 100%;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 </style>
