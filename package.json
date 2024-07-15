@@ -1,0 +1,44 @@
+{
+  "name": "nuxt-app",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@nuxt/eslint": "^0.3.13",
+    "@nuxt/fonts": "^0.7.1",
+    "@nuxt/icon": "^1.0.0",
+    "@nuxt/image": "^1.7.0",
+    "@tanstack/vue-query": "^5.51.0",
+    "nuxt": "^3.12.3",
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.22.0",
+    "@hypernym/nuxt-gsap": "^2.4.2",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.1",
+    "@pinia/nuxt": "^0.5.1",
+    "@studio-freight/lenis": "^1.0.28",
+    "@vueuse/core": "^10.11.0",
+    "@vueuse/nuxt": "^10.11.0",
+    "eslint": "^9.6.0",
+    "lint-staged": "^15.2.7",
+    "pinia": "^2.1.7",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.5.3",
+    "vue-tsc": "^1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
