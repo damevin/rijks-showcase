@@ -9,30 +9,23 @@ export interface MuseumApiResponse {
   facets: Facet[]
 }
 
+export interface FormatedCollection {
+  title: string
+  objectNumber: string
+  description?: string
+  webImage: string
+}
+
 export interface ArtObject {
-  links: {
-    self: string
-    web: string
-  }
   id: string
   objectNumber: string
   title: string
-  hasImage: boolean
-  principalOrFirstMaker: string
-  longTitle: string
-  showImage: boolean
-  permitDownload: boolean
+  hasImage?: boolean
+  description: string
   webImage: ImageInfo | null
-  headerImage: ImageInfo | null
-  productionPlaces: string[]
 }
 
 export interface ImageInfo {
-  guid: string | null
-  offsetPercentageX: number
-  offsetPercentageY: number
-  width: number
-  height: number
   url: string | null
 }
 
