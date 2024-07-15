@@ -3,7 +3,7 @@ const isScrolled = ref<boolean>(false)
 const displayScrollToTop = ref<boolean>(false)
 
 function handleScroll() {
-  if (window.scrollY > 10) {
+  if (window.scrollY > 5) {
     isScrolled.value = true
   }
   if (window.scrollY > 200) {
@@ -34,7 +34,7 @@ onUnmounted(() => {
 <template>
   <div>
     <div class="header" :class="{ scrolled: isScrolled }">
-      <NuxtLink to="/">
+      <NuxtLink to="/" aria-label="Navigate to homepage">
         <svg aria-hidden="true" focusable="false" class="header__logo">
           <use xlink:href="#icon-rijks-logo" href="#icon-rijks-logo" />
           <symbol id="icon-rijks-logo" viewBox="0 0 335 40">
@@ -51,7 +51,7 @@ onUnmounted(() => {
         </svg>
       </NuxtLink>
       <div>
-        <NuxtLink to="my-collections">
+        <NuxtLink to="my-collections" aria-label="Navigate to my collection page">
           <UiBtn>
             My collection
           </UiBtn>
@@ -59,7 +59,7 @@ onUnmounted(() => {
       </div>
     </div>
     <div v-show="displayScrollToTop" class="badge">
-      <UiBtn @click="scrollToTop">
+      <UiBtn aria-label="Scroll to top section" @click="scrollToTop">
         Scroll to top
       </UiBtn>
     </div>
@@ -95,6 +95,4 @@ onUnmounted(() => {
   right: 20px;
   z-index: 1000;
 }
-
-@media screen and (min-width: 768px) {}
 </style>
