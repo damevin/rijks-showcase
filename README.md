@@ -25,7 +25,8 @@ cp .env.example .env
 ```
 
 4. Add env. variables to the `.env` file:
-<!-- The private API key will be provided by email to the reviewer -->
+   - **The private API key will be provided by email to the reviewer**
+<!--  -->
 ```
 NUXT_API_KEY=''
 NUXT_PUBLIC_API_URL='https://www.rijksmuseum.nl/api/en/collection'
