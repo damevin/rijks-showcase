@@ -1,6 +1,6 @@
 # Frontend Technical Test
 
-You can see the live version of the project [here](https://frontend-technical-test.netlify.app/)
+You can see the live version of the project [here](https://euphonious-hummingbird-45ffcb.netlify.app/)
 
 ## Installation and Setup
 
