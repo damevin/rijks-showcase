@@ -17,16 +17,15 @@ const toggleCollectionLabel = computed(() =>
 
 <template>
   <div v-if="details" class="collection">
-    <NuxtLink to="/">
-      <UiBtn variant="primary" class="collection__back">
-        <Icon name="material-symbols:arrow-back-ios-rounded" />
-        Go back
-      </UiBtn>
-    </NuxtLink>
+    <UiBtn variant="primary" class="collection__back" @click="$router.go(-1)">
+      <Icon name="material-symbols:arrow-back-ios-rounded" />
+      Go back
+    </UiBtn>
+
     <h1 class="collection__title">
       {{ details?.title }}
     </h1>
-    <NuxtImg :src="details?.webImage" placeholder="img/placeholder.png" quality="80" class="collection__image" />
+    <NuxtImg :src="details?.webImage" placeholder="img/placeholder.png" quality="80" sizes="" class="collection__image" />
     <span class="collection__description">
       {{ details?.description }}
     </span>
