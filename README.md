@@ -73,7 +73,8 @@ For requests to the Rijksmuseum API, I used fetch with a nitro server **(provide
 
 This diagram illustrates the structure and flow of your two Nitro server routes:
 
-<!-- Add schema of server here -->
+
+![server](https://github.com/user-attachments/assets/d4a0f4cf-ff1f-40e2-b9f1-041969476027)
 
 - The Nuxt application interacts with the Nitro server.
 - The Nitro server has two routes: collection-details and collections.
@@ -106,7 +107,7 @@ Key benefits of using [Vue Query](https://tanstack.com/query/latest/docs/framewo
 
 Let me show you in this diagram of the `useCollections` composable _(made fetch collections)_, how the cache policy works with Vue Query:
 
-<!-- Add the schema of  -->
+![use-collections](https://github.com/user-attachments/assets/d35fab99-391d-4c6f-87a6-77015a6af291)
 
 The `useCollections` function is a composable that encapsulates all the logic for fetching and managing collection data.
 
@@ -143,7 +144,7 @@ The store maintains a reactive array of `FormatedCollection` objects, persists t
 
 Here is a brief overview of the store's structure:
 
-<!-- Add schema of the store here -->
+![collections-store](https://github.com/user-attachments/assets/79e0f1c8-3b9e-4417-b1bf-0dd1cf7b32d8)
 
 ### Styles and CSS
 
@@ -161,7 +162,8 @@ To optimize image loading and display:
 
 Here is a brief overview of the image handling process:
 
-<!-- Add schema of the image handling process here -->
+<img width="1647" alt="img-processing-min" src="https://github.com/user-attachments/assets/a4c2c077-310e-4437-9d9a-ea273cc3170b">
+
 
 In our example the image is very large, so we resize it to a smaller size and convert it to webp format, to improve performance and reduce the load time of the page.
 The final user doesn't see the difference in search engine card preview, but the page load faster and the user experience is better.
@@ -179,8 +181,8 @@ To optimize application performance:
 ### Testing
 
 I've made the choice to not include tests in this project, due to time constraints. However, I would normally include the following tests:
-- Unit tests for components and store (_with Vitest_)[https://vitest.dev/]
-- E2E tests for user interactions (_maybe with Playwright_)[https://vitest.dev/]
+- Unit tests for components and store [_with Vitest_](https://vitest.dev/)
+- E2E tests for user interactions [_maybe with Playwright_](https://playwright.dev/)
 
 I think add tests is important to ensure the quality of the application and to prevent regressions, but in this case **I had to prioritize other aspects of the project**.
 
