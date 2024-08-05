@@ -17,7 +17,7 @@
     "@nuxt/icon": "^1.0.0",
     "@nuxt/image": "^1.7.0",
     "@tanstack/vue-query": "^5.51.0",
-    "nuxt": "^3.12.3",
+    "nuxt": "^3.12.4",
     "vue": "latest"
   },
   "devDependencies": {
